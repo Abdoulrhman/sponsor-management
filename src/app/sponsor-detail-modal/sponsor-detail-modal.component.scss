@@ -1,0 +1,39 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.mat-dialog-container {
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #2196f3, #21cbf3);
+  color: white;
+}
+
+h1.mat-dialog-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.mat-dialog-content {
+  p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+
+  p strong {
+    font-weight: bold;
+  }
+}
+
+.mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+
+  button {
+    background: linear-gradient(45deg, #2196f3, #21cbf3);
+    color: white;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+  }
+}

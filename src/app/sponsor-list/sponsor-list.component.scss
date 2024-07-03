@@ -1,0 +1,76 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.sponsor-list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-items: center;
+  align-items: start;
+
+  @include max-width(1200px);
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  margin-top: 30px;
+}
+
+.loader {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.sponsor-card {
+  width: 100%;
+  max-width: 350px;
+  position: relative;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+
+  .mat-mdc-card-header {
+    justify-content: space-between;
+  }
+}
+
+.example-header-image {
+  margin-right: 1rem;
+  img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+  }
+}
+
+.mat-card-title {
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-transform: capitalize;
+}
+
+.mat-card-content p {
+  margin: 0;
+}
+
+.mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+.got-it-button {
+  background: linear-gradient(45deg, #2196f3, #21cbf3);
+  color: white !important;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  width: 100%;
+}

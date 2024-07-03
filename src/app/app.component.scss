@@ -1,0 +1,30 @@
+nav {
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+
+    li {
+      a {
+        color: #333;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+        cursor: pointer;
+        &.active-link {
+          background-color: #444;
+          color: #fff;
+        }
+
+        &:hover {
+          background-color: #f4f4f4;
+        }
+      }
+    }
+  }
+}

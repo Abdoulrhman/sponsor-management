@@ -1,27 +1,83 @@
-# SponsorManagement
+# Sponsor Management Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.6.
+## Objective
 
-## Development server
+The objective of this test is to assess the ability to create an Angular application that lists and stores sponsors and their related contact officers using API endpoints. The application handles data retrieval, dynamic form creation, validation, error handling, and success message display.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Getting Started
 
-## Code scaffolding
+### Prerequisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Ensure you have the following installed on your machine:
 
-## Build
+- Node.js
+- Angular CLI
+- A modern web browser
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Installation
 
-## Running unit tests
+1. Clone the repository:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   ```sh
+   git clone <repository-link>
+   cd sponsor-management-app
+   ```
 
-## Running end-to-end tests
+2. Install the dependencies:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   ```sh
+   npm install
+   ```
 
-## Further help
+3. Run the application:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+   ```sh
+   ng serve
+   ```
+
+   Open your browser and navigate to `http://localhost:4200`.
+
+## Usage
+
+### List Sponsors
+
+- The application retrieves a list of sponsors and their related contact officers using the provided API endpoint:
+
+  ```url
+  https://gateway.abnaey.com/api/v1/billing/sponsors
+  ```
+
+- The sponsor data is displayed in a well-designed Angular component with a list view.
+- Sponsor data is properly formatted and organized.
+
+### Store Sponsor
+
+- A form allows users to input sponsor data, including sponsor contact officers.
+- Sponsor contact officers are dynamically added, allowing any number of officers to be included.
+- Client-side validation ensures the form data is complete and follows necessary rules (required fields, valid email addresses, etc.).
+- The provided API endpoint is used to store a new sponsor along with their sponsor contact officers:
+
+  ```url
+  https://gateway.abnaey.com/api/v1/billing/sponsors
+  ```
+
+- Errors returned from the server (Server Side Validation) or during the POST request are handled, displaying appropriate error messages.
+- A success message is displayed upon successful submission of a new sponsor.
+
+## Documentation
+
+### What I Do
+
+- Utilized a Login API to get a token and used this token in all API requests for authentication and authorization.
+- Utilized Angular's reactive forms for dynamic form creation and validation.
+- Employed Angular services for API interaction and data handling.
+- Implemented reusable components for listing and form functionalities.
+
+### Libraries/Frameworks Used
+
+- Angular
+- Angular Material (for UI components)
+- RxJS (for reactive programming)
+- Bootstrap (for responsive design)
+
+---

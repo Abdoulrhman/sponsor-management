@@ -1,0 +1,140 @@
+<form [formGroup]="sponsorForm" (ngSubmit)="onSubmit()" class="form-wrapper">
+  <div class="form-section">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="sponsor_code">Sponsor Code</label>
+        <input id="sponsor_code" type="text" formControlName="sponsor_code" class="form-control" required>
+        <div *ngIf="sponsorForm.get('sponsor_code')?.invalid && sponsorForm.get('sponsor_code')?.touched" class="error">
+          Sponsor Code is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="sponsor_name">Sponsor Name</label>
+        <input id="sponsor_name" type="text" formControlName="sponsor_name" class="form-control" required>
+        <div *ngIf="sponsorForm.get('sponsor_name')?.invalid && sponsorForm.get('sponsor_name')?.touched" class="error">
+          Sponsor Name is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="sponsor_name_latin">Sponsor Name (Latin)</label>
+        <input id="sponsor_name_latin" type="text" formControlName="sponsor_name_latin" class="form-control" required>
+        <div *ngIf="sponsorForm.get('sponsor_name_latin')?.invalid && sponsorForm.get('sponsor_name_latin')?.touched" class="error">
+          Sponsor Name (Latin) is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="sponsor_type">Sponsor Type</label>
+        <input id="sponsor_type" type="text" formControlName="sponsor_type" class="form-control" required>
+        <div *ngIf="sponsorForm.get('sponsor_type')?.invalid && sponsorForm.get('sponsor_type')?.touched" class="error">
+          Sponsor Type is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input id="address" type="text" formControlName="address" class="form-control" required>
+        <div *ngIf="sponsorForm.get('address')?.invalid && sponsorForm.get('address')?.touched" class="error">
+          Address is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="postal_code">Postal Code</label>
+        <input id="postal_code" type="text" formControlName="postal_code" class="form-control" required>
+        <div *ngIf="sponsorForm.get('postal_code')?.invalid && sponsorForm.get('postal_code')?.touched" class="error">
+          Postal Code is required and should be 5 digits.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input id="phone" type="text" formControlName="phone" class="form-control" required>
+        <div *ngIf="sponsorForm.get('phone')?.invalid && sponsorForm.get('phone')?.touched" class="error">
+          Phone is required and should be numeric.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" class="form-control" required>
+        <div *ngIf="sponsorForm.get('email')?.invalid && sponsorForm.get('email')?.touched" class="error">
+          Valid Email is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="max_limit">Max Limit</label>
+        <input id="max_limit" type="number" formControlName="max_limit" class="form-control" required>
+        <div *ngIf="sponsorForm.get('max_limit')?.invalid && sponsorForm.get('max_limit')?.touched" class="error">
+          Max Limit is required and should be numeric.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="financial_limit">Financial Limit</label>
+        <input id="financial_limit" type="number" formControlName="financial_limit" class="form-control" required>
+        <div *ngIf="sponsorForm.get('financial_limit')?.invalid && sponsorForm.get('financial_limit')?.touched" class="error">
+          Financial Limit is required and should be numeric.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="time_limit">Time Limit</label>
+        <input id="time_limit" type="number" formControlName="time_limit" class="form-control" required>
+        <div *ngIf="sponsorForm.get('time_limit')?.invalid && sponsorForm.get('time_limit')?.touched" class="error">
+          Time Limit is required and should be numeric.
+        </div>
+      </div>
+      <div class="form-group checkbox-group">
+        <label for="active">Active</label>
+        <input id="active" type="checkbox" formControlName="active">
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-officers-section">
+    <h3>Contact Officers</h3>
+    <div formArrayName="contactOfficers">
+      <div *ngFor="let officer of contactOfficers.controls; let i = index" [formGroupName]="i" class="contact-officer">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name_{{i}}">Name</label>
+            <input id="name_{{i}}" type="text" formControlName="name" class="form-control" required>
+            <div *ngIf="officer.get('name')?.invalid && officer.get('name')?.touched" class="error">
+              Name is required.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email_{{i}}">Email</label>
+            <input id="email_{{i}}" type="email" formControlName="email" class="form-control" required>
+            <div *ngIf="officer.get('email')?.invalid && officer.get('email')?.touched" class="error">
+              Valid Email is required.
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone_{{i}}">Phone</label>
+            <input id="phone_{{i}}" type="text" formControlName="phone" class="form-control" required>
+            <div *ngIf="officer.get('phone')?.invalid && officer.get('phone')?.touched" class="error">
+              Phone is required and should be numeric.
+            </div>
+          </div>
+          <button type="button" class="remove-button" (click)="removeContactOfficer(i)">Remove</button>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" class="add-button" (click)="addContactOfficer()">Add Contact Officer</button>
+  </div>
+
+  <button type="submit" class="submit-button">Submit</button>
+</form>
