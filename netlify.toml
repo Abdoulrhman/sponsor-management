@@ -1,1 +1,8 @@
-[build] 
+[build]
+  command = "ng build --prod"
+  publish = "dist/sponsor-management"
+
+[dev]
+  command = "ng serve"
+  port = 4200
+  targetPort = 4200
